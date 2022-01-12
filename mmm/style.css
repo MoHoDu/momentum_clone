@@ -1,0 +1,191 @@
+* 
+{
+    margin: 0;
+    /* border 바깥에 넣는 공백 */
+    padding: 0;
+    /* border 안에 넣는 공백 */
+    box-sizing: border-box;
+    /* border을 고려한 박스 사이즈 */
+    font-family: 'Poppins', sans-serif;
+    /* 폰트 설정, 없을 경우의 대안의 폰트 */
+}
+
+:root /*변수 저장*/
+{
+    --clr: #222327; /*var(--clr)*/
+}
+
+body
+{
+    display: flex;
+    /* 레이아웃 설정
+    block: 너비가 한 라인 전체/항상 새로운 라인으로 시작
+    inline: content만큼의 너비/새로운 라인으로 시작하지 않음
+    inline-block: 인라인처럼 작동/내부는 블록처럼 동작:margin 등
+        /너비, 높이 설정 가능
+    none: 보이지 않으며 레이아웃에서도 영향을 미치지 않음
+        visibility: hidden도 보이지는 않으나 레이아웃은 영향 */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--clr);
+}
+
+.navigation
+{
+    position: relative;
+    /* html 요소가 위치를 결정하는 방식
+    static position: 기본/top,left...속성에 영향X/페이지 흐름에 맞게
+    relative: 다른 static 요소에 의한 기본 위치를 기준으로 배치
+    fixed: viewport를 기준으로 위치 설정/스크롤 되어도 고정됨
+    absolute: 뷰포트가 아닌 설정된 ancestor(조상)에 따라 위치 */
+    width: 400px;
+    height: 70px;
+    background: #fff;
+    position: relative;
+    display: flex;
+    /* flex (grid와 비슷)
+    가로 방향 배치/내용물의 너비
+    내용물의 높이는 자동으로 채워짐 */
+    /* inline-flex
+    flex 컨테이너가 inline-block처럼 동작 */
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.navigation ul 
+{
+    display: flex;
+    width: 350px;
+}
+
+.navigation ul li 
+{
+    position: relative;
+    list-style: none;
+    /* 리스트 기호 설정
+    none: 기호 없음 */
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+    /* 겹치는 순서, 스택(stack) 순서 설정
+    작을수록 뒤쪽에 위치함 */
+}
+
+.navigation ul li a 
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* 차곡차곡 쌓을 방향
+    row(기본)/column/row-reverse/column-reverse */
+    /* flex-wrap 줄넘김 처리 설정
+    nowrap: 기본값/삐져나와도 줄넘김 처리 안 하고, 삐져나가는대로 냅둠
+    wrap: 아래로 줄넘김
+    wrap-reverse: 위로 줄넘김 */
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.navigation ul li a .icon
+{
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--clr);
+}
+
+.navigation ul li.active a .icon
+{
+    transform: translateY(-32px);
+}
+
+.navigation ul li a .text
+{
+    position: absolute;
+    color: var(--clr);
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    /* 투명도: 0 ~ 1 */
+    transform: translateY(20px);
+}
+
+.navigation ul li.active a .text
+{
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+.indicator
+{
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background: #29fd53;
+    border-radius: 50%;
+    border: 6px solid var(--clr);
+    transition: 0.5s;
+}
+
+.indicator::before
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 var(--clr);
+}
+
+.indicator::after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 var(--clr);
+}
+
+.navigation ul li:nth-child(1).active ~ .indicator
+{
+    transform: translateX(calc(70px * 0));
+}
+
+.navigation ul li:nth-child(2).active ~ .indicator
+{
+    transform: translateX(calc(70px * 1));
+}
+
+.navigation ul li:nth-child(3).active ~ .indicator
+{
+    transform: translateX(calc(70px * 2));
+}
+
+.navigation ul li:nth-child(4).active ~ .indicator
+{
+    transform: translateX(calc(70px * 3));
+}
+
+.navigation ul li:nth-child(5).active ~ .indicator
+{
+    transform: translateX(calc(70px * 4));
+}

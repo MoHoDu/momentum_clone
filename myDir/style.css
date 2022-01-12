@@ -1,0 +1,137 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+:root
+{
+    --color01: rgb(221, 159, 137);
+    --color02: rgb(241, 241, 191);
+    --color03: rgb(185, 185, 236);
+    --color04: rgb(172, 224, 172);
+    --indiWidth: 78px;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+#upper_bar
+{
+    /* width: 80vw; */
+    margin: 8px 10px 0 10px;
+    padding: 10px 0 0 6px;
+    border-top: solid black 2px;
+    border-right: solid black 2px;
+    border-top-right-radius: 15px;
+    border-left: solid black 2px;
+    background-color: rgb(197, 197, 197);
+}
+
+#upper_bar .btn_menu
+{
+    margin-right: -7px;
+    width: 80px;
+    min-width: 65px;
+    height: 30px;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1em;
+    /* color: whitesmoke; */
+    font-weight: bold;
+    border-color: black;
+}
+
+#upper_bar form
+{
+    float: right;
+    margin-right: 8px;
+}
+
+#upper_bar #login
+{
+    width: 150px;
+    height: 25px;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+#upper_bar #login_btn
+{
+    width: 50px;
+    height: 25px;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: black;
+}
+
+#main
+{
+    /* width: 80vw; */
+    height: 80vh;
+    margin: 0 10px 0 10px;
+    border: solid black 2px;
+    border-bottom-right-radius: 15px;
+    transition: 0.5s;
+}
+
+#indicator
+{
+    position: absolute;
+    width: 76px;
+    height: 2px;
+    top: 50px;
+    left: 20px;
+    transition: 0.5s;
+}
+
+#indicator.home
+{
+    transform: translateX(calc(var(--indiWidth) * 0));
+}
+
+#indicator.service
+{
+    transform: translateX(calc(var(--indiWidth) * 1));
+}
+
+#indicator.info
+{
+    transform: translateX(calc(var(--indiWidth) * 2));
+}
+
+#indicator.QnA
+{
+    transform: translateX(calc(var(--indiWidth) * 3));
+}
+
+.home
+{
+    background-color: var(--color01);
+}
+
+.service
+{
+    background-color: var(--color02);
+}
+
+.info
+{
+    background-color: var(--color03);
+}
+
+.QnA
+{
+    background-color: var(--color04);
+}
+
+.hidden
+{
+    display: none;
+}

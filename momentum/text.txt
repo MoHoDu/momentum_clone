@@ -1,0 +1,427 @@
+// number
+integer 1
+float 1.3
+
+// text
+"text" --> string
+"Hello" + "My name is HoSung"
+
+// print in consol
+console.log(545454);
+console.log("hihihi");
+
+// variable
+let letA = 5;   // let value can change but const value can't change
+const constA = 5;    // constant means '바뀌지 않는' and '상수'
+const b = 2;    // 2 is integer but "2" is not integer
+
+let myName = "MoHo";  // is camelCase
+// But python has snake_case : my_name
+
+console.log(letA + b);
+console.log(letA * b);
+console.log(letA / b);
+console.log("hello" + myName);
+
+myName = "HoSung";
+
+console.log("your new name is " + myName);
+
+var a = 2;  // var is original variable type
+// but var is not protected by Javacript
+// We have no idea with var value
+
+// boolean : true or false
+const amIFat = true;    // not "true"
+console.log(amIFat);
+// From Python, you write True, False
+
+// null means "there is nothing"
+const amIThin = null;  
+// From Python, you write None
+
+// undefined
+let something;  // not defined
+console.log(amIThin);   // amIThin is defined but there is nothing
+console.log(something); // something variable is not defined
+
+// Data structure means how to save data and search data
+
+const daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat"];
+// const nonsense = [1, 2, "hello", false, true, null, undefined, "MoHo"];
+// Array uses []
+
+// Get Item from Array
+console.log(daysOfWeek[5]); // not 'fri' but 'sat'
+// access the data in array
+// computer count from 0
+
+// add one more day to the array
+daysOfWeek.push('sun');
+
+console.log(daysOfWeek);
+
+// example
+const toBuy = ["potato", "tomato", "carrot"];
+toBuy.push("kimbab");
+console.log(toBuy[2], toBuy[9]);
+
+const player = {
+    name: "Moho",
+    points: 10,
+    fat: true,
+};
+console.log(player);
+console.log(player.name);
+console.log(player["name"]);
+// player.fat = flase;
+console.log(player);    // const value cna't change
+player.lastName = "potato";
+player.points = player.points + 15;
+player.name = "hh";
+player.name = 23;
+console.log(player);    // const value can update
+
+// function: little code as possible
+function sayHello(nameOfPerson, age/*argument*/) {
+    console.log("Hello my name is " + nameOfPerson);
+    console.log("I am " + age + " years old");
+}
+
+sayHello("Hosung", 27);
+sayHello("Nico", 30);
+sayHello("Sujin", 25);
+sayHello("Lynn", 29);
+
+function plus(firstNumber, secondNumber) {
+    console.log(firstNumber + secondNumber);
+}
+function divide(firstNumber, secondNumber) {
+    console.log(firstNumber / secondNumber);
+}
+
+plus(); // NaN
+plus(8, 60);    // 68
+divide(98, 20); // 4.9
+// console.log(firstNumber);   
+// The argument do not exist outside the function
+
+// Function inside Object
+const player = {
+    name: 'nico', 
+    sayHello: function(otherPersonName) {
+        console.log("hello! " + otherPersonName + " nice to meet you!");
+    },
+};
+
+console.log(player.name);
+player.sayHello("Lynn");
+player.sayHello("Moho");
+player.sayHello("Sujin");
+
+// not using console.log in function
+// Return
+const calculator = {
+    plus: function (a, b) {
+        return (a + b);
+    }, 
+    minus: function (a, b) {
+        return (a - b);
+    }, 
+    times: function (a, b) {
+        return (a * b);
+    }, 
+    divide: function (a, b) {
+        return (a / b);
+    }, 
+    power: function (a, b) {
+        return (a ** b);
+    }, 
+}
+
+// start the function --> get value --> console.log
+const plusResult = calculator.plus(2, 3);
+console.log(plusResult);
+const timesResult = calculator.times(2, 3);
+console.log(timesResult);
+const minusResult = calculator.minus(2, 3);
+console.log(minusResult);
+const divideResult = calculator.divide(2, 3);
+console.log(divideResult);
+const powerResult = calculator.power(2, 3);
+console.log(powerResult);
+
+const age = 96;
+function calculateKrAge(ageOfForeigner) {
+    return ageOfForeigner + 2;  
+    // return "hello";
+    // replacing this function to return value
+}
+
+const krAge = calculateKrAge(age);  
+// carculateKrAge(age) --> return value: 98
+console.log(krAge);
+
+// conditionals: if / else
+// const age = prompt("How old are you?");
+
+// console.log(typeof age, parseInt(age));    
+// typeof Value: show value's type
+
+// prompt show the message and ask user's input
+// cancle == null
+// not input and press ok == ""
+// 121212 == "121212": type is string
+// doesn't look beautiful --> not use prompt
+
+const age = parseInt(prompt("How old are you?"));
+
+// if (condition) {} else if (condition2) {} else {}
+if (isNaN(age)/*condition*/) {
+    console.log("Please write a number");
+} else if (age < 18) {
+    console.log("You are too young");
+} else {
+    console.log("You can drink");
+}
+
+---------------------------------------------
+
+const title = document.getElementById("title");
+// By looking for id, get the element
+
+title.innerText = "Got you!";   
+// JS can access html document
+
+console.log(title.id);
+console.log(title.className);
+
+// const hellos = document.getElementsByClassName("hello");
+// // get many elements
+// // get all element have same class name
+// console.log(hellos);
+
+// const h1s = document.getElementsByTagName("h1");
+// // get many elements
+// // get all element have same tag name
+// console.log(h1s);
+
+// querySelector 
+/* allows you do search for element 
+    using css lotation */
+const qTitle = document.querySelector(".hello h1:first-child");
+// querySelector("class name inside")
+// :first-child get first child element
+console.log(qTitle);
+// find first one (many cases)
+
+const alTitle = document.querySelectorAll(".hello h1");
+console.log(alTitle);
+// .className or #idName childElement
+
+// const title = document.querySelector(".hello:first-child h1");
+// // querySelector(All) is best
+// title.innerText = "Hello";
+
+// console.dir(title);
+// // show title's property
+// // something can't change
+// // focus on style property and change style
+// title.style.color = "blue";
+
+// // event: click
+// // JS can listen event
+const title = document.querySelector(".hello:first-child h1");
+
+function handleTitleClick() {
+    title.style.color = "blue";
+}
+
+function handleMouseEnter() {
+    title.innerText = "Mouse is here!";
+}
+
+function handleMouseLeave() {
+    title.innerText = "Mouse is gone";
+}
+
+title.addEventListener("click", handleTitleClick);
+title.addEventListener("mouseenter", handleMouseEnter);
+title.addEventListener("mouseleave",handleMouseLeave);
+// htmlElement.addEventListener("event",function);
+// JS listen only "click" event
+// And once that click event happen, do jandleTitleClick funcction
+
+// console.log(title);
+// on... is event element
+// When use this element in JS
+// you should remove "on" on verb
+
+// But, style changing is handled whenever possible
+
+const h1 = document.querySelector('div.hello:first-child h1');
+
+function handleTitleClick() {
+    h1.style.color = 'blue';
+}
+
+function handleMouseEnter() {
+    h1.innerText = 'Mouse is here';
+}
+
+function handleMouseLeave() {
+    h1.innerText = 'Mouse is gone';
+}
+
+function handleWindowResize() {
+    document.body.style.backgroundColor = 'tomato';
+}
+
+function handleWindowCopy() {
+    alert('copier!!');
+}
+
+function handleWindowOffline() {
+    alert('SOS no WIFI');
+}
+
+function handleWindowOnline() {
+    alert('All GOOOOD');
+}
+
+h1.addEventListener('click',handleTitleClick);
+// title.onclick = handleTitleClick;
+h1.addEventListener('mouseenter',handleMouseEnter);
+// title.onmouseenter = handleMouseEnter;
+h1.addEventListener('mouseleave', handleMouseLeave);
+// title.onmouseleave = handleMouseLeave;
+
+// addEventListener는 removeEventListener로 
+// 나중에 지울 수 있기 때문에 addEventListener로 
+// 이벤트를 제어하는 것이 더 좋음
+
+window.addEventListener('resize', handleWindowResize);
+// window, document.body(.title) 등은 바로 
+// 가져올 수 있지만, div 등의 요소들은 querySelector나
+// getElementById 등으로 찾아와야 함
+
+window.addEventListener('copy', handleWindowCopy);
+// if you try to copy anyone, eventListener call this event
+
+window.addEventListener('offline', handleWindowOffline);
+window.addEventListener('online', handleWindowOnline);
+// wifi 혹은 인터넷 연결 유무
+
+const h1 = document.querySelector('div.hello:first-child h1');
+
+function handleTitleClick() {
+    const currentColor = h1.style.color;
+    let newColor;
+    if(currentColor === 'blue') {
+        // ===은 is, 값이 같은지 체크 
+        newColor = 'tomato';
+    } else {
+        newColor = 'blue';
+    }
+    h1.style.color = newColor;
+}
+
+h1.addEventListener('click', handleTitleClick);
+
+// style => css
+// className/classList
+const h1 = document.querySelector('div.hello:first-child h1');
+
+function handleTitleClick() {
+    const clickedClass = "clicked";
+    // raw string이 아닌 변수로 호출하면 스펠링이 잘못되었을
+    // 때에 콘솔에서 에러를 띄워줌
+    if(h1.classList.contains(clickedClass)) {
+        // classList.contains(A): A라는 클래스를 가지고 있는가
+        h1.classList.remove(clickedClass);
+        // 해당 클래스만 제거
+    } else {
+        // h1.className = clickedClass;
+        // getter/setter: get그리고 set 모두 가능 
+        // 최초의 className을 아예 지우고 다시 지정
+        h1.classList.add(clickedClass);
+        // 해당 클래스만 더함
+    }
+}
+
+h1.addEventListener('click', handleTitleClick);
+
+// toggle
+const h1 = document.querySelector('div.hello:first-child h1');
+
+function handleTitleClick() {
+    h1.classList.toggle("clicked");
+    // toggle: class가 없으면 생성, 있으면 제거
+}
+
+h1.addEventListener('click', handleTitleClick);
+
+// introduce part's css
+body {
+    background-color: beige;
+}
+
+h1 {
+    color: cornflowerblue;
+    transition: color 0.5s ease-in-out;
+    /* 스르륵 변함 */
+}
+
+.clicked {
+    color: tomato;
+}
+
+.sexy-font {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+----------------1
+// first method
+// const loginForm = document.getElementsById("login-form");
+// const loginInput = loginForm.querySelector("input");
+// const loginButton = loginForm.querySelector("button");
+
+//second method
+const loginInput = document.querySelector("#login-form input");
+const loginButton = document.querySelector("#login-form button");
+
+// function onLoginBtnClick() {
+//     // console.log("hello", loginInput.value);
+//     // const userName = loginInput.value;
+//     // if(userName === "") {
+//     //     alert("Please write your name.");
+//     // } else if(userName.length > 15) {
+//     //     alert("Your name is too long.");
+//     // }
+//     // 절대 user를 믿지마...
+//     // 다만, html 안에서 할 수 있는 유효성 검사를 사용해보자
+//     // required/maxlength(form안에서만 가능)
+// }
+
+--------------2
+# evnetListener의 원리와 preventDefault()
+
+function onLoginSubmit(event/* 이벤트 info */) {
+    event.preventDefault();
+    // 어떤 evenet의 기본 행동이든지 동작을 막음 
+    const username = loginInput.value;
+    console.log(username);
+}
+
+function handleLinkClick(event) {
+    event.preventDefault();
+    console.log(event);
+    // alert도 하이퍼링크 이동을 잠깐 막음
+}
+
+link.addEventListener("click", handleLinkClick);
+loginForm.addEventListener("submit", onLoginSubmit);
+// onLoginSubmit(): 즉시 실행
+// addEventListener("submit", onLoginSubmit)
+//  : 브라우저가(내가 아니라) submit 시에 해당 info를
+//  첫번째 argument로 onLoginSubmit(info)를 실행함

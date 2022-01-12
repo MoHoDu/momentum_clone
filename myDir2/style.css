@@ -1,0 +1,227 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+body 
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#titleLine
+{
+    padding: 23px 24px 23px 24px;
+    height: 32px;
+    display: inline-block;
+    flex-direction: row;
+    /* border-bottom: solid black 2px; */
+}
+
+#titleLine #title
+{
+    float: left;
+}
+
+#titleLine button
+{
+    float: right;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border-color: rgb(238, 238, 238);
+    border-width: 1px;
+    outline: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#titleLine #toggle #search
+{
+    background: url(https://tistory1.daumcdn.net/tistory/3199338/skin/images/ico_package.png) 0px 0px no-repeat rgb(255, 255, 255);
+}
+
+#titleLine #toggle #profile
+{
+    overflow: hidden;
+    margin-left: 14px;
+}
+
+#titleLine #toggle #profile img
+{
+    width: 100%;    
+    height: 100%;
+}
+
+#menuLine
+{
+    height: 70px;
+    display: flex;
+}
+
+#menuLine button 
+{
+    padding: 0 24px 0 24px;
+    width: 95px;
+    border: none;
+    background: transparent;
+    font-size: 1.0em;
+    color: rgb(119, 119, 119);
+}
+
+#menuLine button a
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 25px 0 24px 0;
+    text-align: -webkit-match-parent;
+    cursor: pointer;
+}
+
+#menuLine button a:hover:after
+{
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+}
+
+#menuLine button.active a::after, #menuLine button.selected a::after
+{
+    content: "";
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+}
+
+#menuLine button.active, #menuLine button.selected
+{
+    font-weight: bolder;
+    color: black;
+}
+
+#subjectLine 
+{
+    padding: 0 24px 0 24px;
+    width: 100%;
+    height: 340px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(99, 99, 146);
+    border: solid black 1px;
+    border-left: none;
+    border-right: none;
+}
+
+#subjectLine #inner
+{
+    display: flex;
+    flex-direction: column;
+
+}
+
+#subjectLine #subject, #subjectLine #typeOf
+{
+    color: white;
+}
+
+#subjectLine #typeOf
+{
+    margin-bottom: 13px;
+}
+
+#subjectLine #subject
+{
+    font-size: 2em;
+}
+
+#subjectLine #writerDate
+{
+    color: rgb(206, 206, 206);
+    margin-top: 33px;
+}
+
+#subjectLine #writerDate #writer
+{
+    display: inline;
+    width: 300px;
+}
+
+#subjectLine #writerDate #date
+{
+    display: inline;
+    width: 300px;
+}
+
+#contentLine
+{
+    padding: 0 20px 0 20px;
+}
+
+#contentLine::before
+{
+    content: "";
+    position: absolute;
+    left: 27.3%;
+    margin-left: 0;
+    width: 1px;
+    height: 100%;
+    background-color: rgb(238, 238, 238);
+    z-index: 10;
+}
+
+ul
+{
+    float: left;
+    padding: 80px 0 0 0;
+    width: 21.2963%;
+}
+
+li 
+{
+    list-style: none;
+    line-height: 1.25rem;
+    padding: 6px 0 7px 0;
+    font-size: 0.875em;
+    color: rgb(119, 119, 119);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+li:hover
+{
+    text-decoration: underline;
+}
+
+#subLi
+{
+    color: rgb(85, 85, 85);
+    font-weight: bolder;
+}
+
+#contentLine #content
+{
+    display: block;
+    float: right;
+    width: 68.5185%;
+    box-sizing: border-box;
+    padding: 72px 0px 60px;
+}
+
+p
+{
+    word-break: break-all;
+    font-size: 0.9375em;
+    line-height: 2;
+    color: rgb(85, 85, 85);
+}
