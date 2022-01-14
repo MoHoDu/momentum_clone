@@ -1,0 +1,130 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root
+{
+    --clr: rgb(80, 80, 80);
+    --bkc: rgb(145, 152, 158);
+    --ftc: rgb(49, 49, 49);
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bkc);
+}
+
+#searchArea
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchArea #shadow
+{
+    position: absolute;
+    width: calc(100% + 50px);
+    height: 300px;
+    top: 0;
+    left: -50px;
+    transform-origin: top;
+    transform: skew(45deg);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), transparent, transparent, transparent);
+    z-index: -1;
+}
+
+#searchArea #shadow::before
+{
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--bkc);
+    z-index: 0;
+}
+
+#searchArea #searchForm
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 50px;
+    transition: 0.5s;
+}
+
+#searchArea #searchForm:hover
+{
+    width: 400px;
+}
+
+#searchArea #searchForm input
+{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    color: var(--ftc);
+    font-size: 1.2em;
+    padding: 15px 25px;
+    background: linear-gradient(rgb(196, 195, 195), rgb(110, 109, 109));
+    box-shadow: 5px 5px 5px rgb(43, 43, 43, 0.3),
+    10px 10px 10px rgba(43, 43, 43, 0.3),
+    20px 20px 15px rgba(43, 43, 43, 0.3),
+    25px 25px 15px rgba(43, 43, 43, 0.3),
+    inset 2px 2px 4px rgb(221, 221, 221); 
+}
+
+#searchArea #searchForm::before
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(#fff, #fff, rgb(185, 185, 185));
+    filter: blur(1px);
+}
+
+#searchArea #searchForm::after
+{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(rgb(60, 60, 60), rgb(80, 80, 80), rgb(80, 80, 80));
+    filter: blur(1px);
+}
+
+#searchArea #searchForm input::placeholder
+{
+    color: transparent;
+    transition: 0.5s;
+}
+
+#searchArea #searchForm:hover input::placeholder
+{
+    color: rgb(59, 59, 59);
+    transition: 0.5s;
+}
+
+#searchArea #searchForm #quMark
+{
+    font-size: 1.8em;
+    position: absolute;
+    color: var(--ftc);
+    right: 15px;
+}
