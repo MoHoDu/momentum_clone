@@ -1,0 +1,53 @@
+UI : User Interface
+- 시스템이 사용자를 대면하는 접점 
+- 노트북의 UI: 하드웨어적인 UI_마우스, 키보드...
+- 웹의 버튼, 검색창 등...
+
+API : Application Progrmming Interface
+- 일반적인 사용자들이 사용하는 인터페이스는 아님
+- 코드로 되어있는 인터페이스
+- alert() 등...
+
+javascript:alert("hello world");
+javascript: 프로그래밍 언어의 명령어 이다.
+alert() 경고창을 띄우는 명령어
+"hello world" 경고창에 띄울 문자열
+
+운영체제 (운영프로그램) 
+    -제공-> 아이콘 -사용-> 브라우저(플랫폼, 기반 시스템)
+        -제공-> API(알림창 등) -개발-> 응용 프로그램
+
+UI -> _____사용자______
+   \      API         / 소프트웨어 공학
+    \   웹 개발자      /
+     \   브라우저     /
+      \ 운영체제     /
+       \  언어     /
+        \어셈블리어/
+         \기계어/
+          \  /
+           \/
+         전자 공학
+           \/
+         전기 공학
+
+튜토리얼 : 문법, 안내서 같은 것 <-- 생활코딩 수업
+레퍼런스 : 사전 같은 것
+
+# 자바스크립트 레퍼런스 보는 법
+명령들을 모아놓은 API / 자바스크립트가 동작하는 호스트 환경의 API
+JS의 호스트환경 : 웹브라우저 / node.js / GA
+JS의 기본 API : 정규표현식, 날짜, MATH 등 <-- 일단 우리 목표
+
+# 자바스크립트 기본 API 레퍼런스 
+ECMA Script === javascript
+LiveScript가 원래 이름 --> JavaScript
+--> 언어의 표준을 국제기구에게 위임 --> 위임된 국제기구가 ECMA
+--> 상표권 문제로 JavaScript 이름을 ECMAScript로 표기
+: JS 표준안을 발표
+
+생활코딩 JS API사전
+MDN(mojila development network) 레퍼런스
+
+# 호스트환경에서의 API 레퍼런스
+각 호스트 환경의 홈페이지에서 DOCS, Reference 탭에서 확인 가능
