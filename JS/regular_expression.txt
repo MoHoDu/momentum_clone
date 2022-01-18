@@ -1,0 +1,113 @@
+<정규표현식>
+
+JS 내에서 정규표현식을 사용하는 조작방법을 일단 배우기로 함
+정규표현식은 별도의 분야이자 언어이며 다른 언어들에서도 이를
+사용하게 된다.
+이 정규표현식 자체에 대한 공부는 지금은 패스.
+
+>> 정규표현식이 무엇인가?
+문자열에서 특정한 문자를 찾아내는 도구!
+수십줄이 필요한 작업을 한 줄로 끝낼 수 있다.
+
+> 주요 작업들
+패턴에서 추출할 때, 패턴을 테스트, 정보를 치환하는 작업
+
+>> 정규표현식 생성
+JS에서 정규표현식은 크게 컴파일 > 실행 두 가지 단계로 이루어진다.
+
+> 컴파일
+--> 패턴을 찾는 것
+
+> 실행
+-->패턴에 따라 어떠한 작업을 구체적으로 하는 것
+
+>> 정규표현식 리터럴 : 패턴 만들기
+
+var pattern = /a/
+    : /와 / 사이에 a가 찾고자하는 것이라는 패턴 생성
+
+var pattern = new RegExp('a');
+    : regularExpression의 약자 RegExp
+    : 새로운 정규표현식 패턴을 만든 것
+
+위 두 개는 모두 같은 것 --> pattern은 새 객체
+
+>> 정규표현식 메소드 실행
+정규표현식 실행
+    : RegExp.exec(대상) 
+    - 찾을 대상에서 패턴을 찾아서 배열로 리턴
+    --> 추출
+
+--> 찾고자 하는 문자가 없으면 null
+
+ /a./
+    : a 뒤에 어떠한 문자가 있는 문자
+
+RegExp.test(대상) 
+    : 찾을 대상에서 패턴의 유무를 booleon 값으로 리턴
+    --> 존재 유무 테스트
+
+str.match(RegExp)
+    : 문자열에 패턴이 있으면 찾아서 배열로 리턴
+    --> 배열 혹은 null
+
+str.replace(RegExp, 'A');
+    : 문자열에서 패턴을 찾아서 'A'로 치환
+    --> 값을 치환
+
+>> 옵션
+> i
+    : var oi = /a/i;
+    --> i를 붙이면 패턴을 만들 때에 대소문자를 구분하지 않는다.
+
+> g
+    : var oi = /a/g;
+    --> g를 붙이면 패턴을 찾아 '모두' 리턴한다.
+
+--> var oi = /a/ig;와 같이 두 개 다 쓸 수도 있다.
+
+>> 캡처
+> (\w+)\s(\w+)
+    ( ) : 그룹화
+    \w  : 문자(소대문자, 0-9)
+    +   : 수량자 - 앞에 있는 문자가 하나 이상인 경우 패턴이 유효
+        --> 이 경우는 '#'이면 유효하지 않고, 'a'는 유효
+    \s  : 공백 - 문자 뒤에 공백(스페이스)이 있다면 유효
+
+> var result = str.replace(pattern, "$2, $1");
+    $2  : 두 번째 값
+    $1  : 첫 번째 값
+    "$2, $1" : "두 번째 값, 첫 번째 값"
+    --> 그룹 지정 및 캡처 그리고, 치환
+        캡처 : 그룹을 가져오는 것
+
+>> 치환
+
+var urlPattern = /\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/gim;
+var content = '생활코딩 : http://opentutorials.org/course/1 입니다. 네이버 : http://naver.com 입니다. ';
+var result = content.replace(urlPattern, function(url){
+    return '<a href="'+url+'">'+url+'</a>';
+});
+console.log(result);
+
+> var result = content.replace(urlPattern, function(url){
+      return '<a href="'+url+'">'+url+'</a>';
+  });
+    content.replace(a, function(url){
+        return '<a href="'+url+'">'+ url +'</a>';
+    });
+    : a라는 패턴을 만났을 때에 함수를 실행하는데, 그 당시 마주한
+      url을 파라미터로 가져와서 실행한 뒤 리턴된 값을 a 대신에 
+      치환한다.
+    : 위의 경우에는 url을 a태그로 감싸고 해당 주소로 하이퍼링크
+      처리한 값을 원래 url 대신 치환하도록 한다.
+
+>> 참고
+생활코딩 정규표현식 수업
+    : https://opentutorials.org/course/909/5142
+
+정규표현식을 시각화
+    : https://regexper.com/
+
+정규표현식 빌더
+    : https://regexr.com/

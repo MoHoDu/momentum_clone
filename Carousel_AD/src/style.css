@@ -1,0 +1,312 @@
+*
+{
+    box-sizing: border-box;
+}
+
+:root
+{
+    --boxWdh: 50vw;
+}
+
+body
+{
+    padding: 10px;
+    width: 100vw;
+    height: 100vh;
+    font-size: 90%;
+    background-color: rgb(196, 196, 196);
+}
+
+body, 
+#box,
+#title,
+.contentBox,
+.adBox,
+.adTextBox
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#titleBox,
+#carouselInner,
+.adNoticeBox,
+#buttonBox
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#box
+{
+    position: relative;
+    width: var(--boxWdh);
+    height: 75vw;
+    min-width: 300px;
+    min-height: 450px;
+    background-color: white;
+    box-shadow: 2px 5px 5px 2px rgb(182, 182, 182);
+    border-radius: 1vw;
+}
+
+#titleBox, 
+#tagBox,
+#buttonBox
+{
+    width: 100%;
+    height: 10%;
+}
+
+#contentBox
+{
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+}
+
+#titleBox #iconBox
+{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#titleBox #iconBox .icon
+{
+    width: 100%;
+    height: 100%;
+    padding: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#titleBox #iconBox .icon .iconImg
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    font-size: 50%;
+    color: white;
+}
+
+#titleBox #title
+{
+    width: 85%;
+    height: 100%;
+    padding: 3%;
+}
+
+#titleBox #title #titleText, #titleBox #title #writerName
+{
+    /* position: relative; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#titleBox #title #titleText span
+{
+    font-weight: 700;
+}
+
+#titleBox #title #writerName span
+{
+    color: rgb(133, 131, 131);
+    font-size: 78%;
+}
+
+#contentBox #textBox
+{
+    height: 20%;
+    width: 100%;
+    padding: 2%;
+}
+
+#contentBox #carouselBox
+{
+    width: 102vw;
+    left: -26vw;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+#contentBox #carouselBox .carouselBtn
+{
+    position: absolute;
+    height: 5vw;
+    width: 3vw;
+    top: 19vw;
+    border: none;
+    border-radius: 10%;
+    box-shadow: 1px 1px 1px 1px rgb(182, 182, 182);
+}
+
+#contentBox #carouselBox #leftAd
+{
+    left: 28vw;
+}
+
+#contentBox #carouselBox #rightAd
+{
+    right: 28vw;
+}
+
+#box::before
+{
+    content: "";
+    width: 26vw;
+    height: 75vw;
+    position: absolute;
+    left: -26vw;
+    top: 0;
+    background: rgb(196, 196, 196);
+    z-index: 2;
+}
+
+#box::after
+{
+    content: "";
+    width: 26vw;
+    height: 75vw;
+    position: absolute;
+    right: -26vw;
+    top: 0;
+    background: rgb(196, 196, 196);
+    z-index: 2;
+}
+
+#contentBox #carouselBox #carouselInner
+{
+    width: 98vw;
+    left: -24vw;
+    padding: 0 1vw 0 1vw;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+#contentBox #carouselBox .adBox
+{
+    width: 30vw;
+    min-width: 100px;
+    height: 42vw;
+    margin: 0 1vw 0 1vw;
+    box-shadow: 2px 2px 5px 2px rgb(182, 182, 182);
+}
+
+#contentBox #carouselBox .adBox .imgBox
+{
+    width: 100%;
+    height: 80%;
+}
+
+#contentBox #carouselBox .adBox .adNoticeBox 
+{
+    width: 100%;
+    height: 20%;
+    justify-content: flex-start;
+}
+
+#contentBox #carouselBox .adBox .adNoticeBox .adTextBox
+{
+    width: 60%;
+    height: 100%;
+    padding: 2%;
+}
+
+#contentBox #carouselBox .adBox .adNoticeBox .adTextBox .headline,
+#contentBox #carouselBox .adBox .adNoticeBox .adTextBox .description
+{
+    display: flex;
+    margin-right: auto;
+    padding-left: 5px;
+}
+
+#contentBox #carouselBox .adBox .adNoticeBox .adTextBox .headline
+{
+    font-weight: 700;
+}
+
+#contentBox #carouselBox .adBox .adNoticeBox .adTextBox .description
+{
+    color: rgb(133, 131, 131);
+    margin-top: 2px;
+}
+
+#contentBox #carouselBox .adBox .adNoticeBox .adBtnBox
+{
+    display: flex;
+    width: 40%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#contentBox #carouselBox .adBox .adNoticeBox .adBtnBox .adBtn
+{
+    border: none;
+    outline: none;
+    background-color: rgb(221, 221, 221);
+    width: 70%;
+    height: 50%;
+    border-radius: 10%;
+    box-shadow: 1px 2px 1px 1px rgb(182, 182, 182);
+}
+
+#tagBox
+{
+    width: 100%;
+    height: 10%;
+}
+
+#tagBox #tagList
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 6% 5% 0 5%;
+    margin: 0;
+}
+
+#tagBox #tagList .tag
+{
+    list-style: none;
+    margin-right: 5px;
+    color: rgb(133, 131, 131);
+}
+
+#buttonBox
+{
+    width: 100%;
+    height: 10%;
+    background-color: rgb(221, 221, 221);
+}
+
+#buttonBox button
+{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: rgb(233, 232, 232);
+    margin: 0 2px 0 2px;
+    border-right: solid 1px rgb(221, 221, 221);
+    border-left: solid 1px rgb(221, 221, 221);
+}
+
+.hidden
+{
+    display: none;
+}
