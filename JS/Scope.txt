@@ -1,0 +1,146 @@
+# Scope 유효범위
+
+# 정의
+
+JS --> 함수형 언어
+함수 : 모듈화의 근간
+>> 코드 재사용/정보 구성/정보 감추기/객체 행위 지정...
+
+유효범위 == 변수의 수명
+
+#01.
+var vscope = 'global';
+function fscope(){ 
+    #함수 바깥쪽에 선언되어 있는 vscope을 선언 중
+    alert(vscope);
+}
+fscope();
+
+#02.
+var vscope = 'global'; <--- 전역변수
+function fscope(){
+    var vscope = 'local'; <--- 지역변수
+    # 더 가까운 vscope을 가져옴
+    alert('함수안 '+vscope);
+}
+fscope();
+alert('함수밖 '+vscope);
+
+# local variable vs global variable
+# 지역 변수 vs 전역 젼수
+
+지역변수: 함수의 중괄호 안에서만 접근할 수 있는 변수
+전역변수: 자바스크립트 에플리케이션 전역에서 접근할 수 있는 변수
+
+#03. 
+function fscope() {
+    var vscope = 'lacal';
+}
+alert(vscope); --> undefined
+
+--> 지역변수는 해당 함수 안에서만 접근할 수 있다
+
+#04.
+var vscope = 'global';
+function fscope() {
+    vscope = 'local'; <--- 로컬변수가 아닌 전역 변수값 변경
+}
+
+#05.
+var vscope = 'global';
+function fscope() {
+    var vscope = 'lacal'; <--- 지역 변수 정의
+    vscope = 'local'; <--- 지역 변수 vscope 존재/지역 변수값 변경
+}
+
+# 유효범위의 효용
+
+function a (){
+    i = 0;  <--- 전역 변수의 값을 0으로 변경
+}
+for(var i = 0; i < 5; i++){ <--- 전역 변수 i
+    a();    <--- 계속 0으로 초기화되어서 반복문이 끝나지 않음
+    document.write(i);
+}
+
+# 전역변수의 사용
+- 불가피하게 전역변수를 사용해야 하는 경우, 
+    > 하나의 객체를 전역변수로 만들고,
+    > 객체의 속성으로 변수를 관리하는 방법을 사용한다.
+
+#01.
+var MYAPP = {}  <--- 전역변수 하나만 선언
+MYAPP.calculator = {
+    'left' : null,
+    'right' : null
+}
+MYAPP.coordinate = {
+    'left' : null,
+    'right' : null
+}
+    ---> 전역변수 하나 안에 필요한 변수들을 선언
+    ---> 다른 사람의 전역변수와 충돌할 가능성을 줄임
+MYAPP.calculator.left = 10;
+MYAPP.calculator.right = 20;
+function sum(){
+    return MYAPP.calculator.left + MYAPP.calculator.right;
+}
+document.write(sum());
+
+#02.
+(function(){    ---> 익명함수(전역변수를 아예 없애려고)
+    var MYAPP = {}  ---> 함수의 지역변수
+    MYAPP.calculator = {
+        'left' : null,
+        'right' : null
+    }
+    MYAPP.coordinate = {
+        'left' : null,
+        'right' : null
+    }
+    MYAPP.calculator.left = 10;
+    MYAPP.calculator.right = 20;
+    function sum(){
+        return MYAPP.calculator.left + MYAPP.calculator.right;
+    }
+    document.write(sum());
+}())    ---> 바로 호출
+    ---> 함수의 이름도 전역변수이기 때문에 익명함수를 씀
+    ---> jquery / 모듈화에 많이 쓰임
+
+# 유효범위의 대상(함수)
+
+함수의 중괄호 안에서 호출된 변수는 지역변수이지만
+자바 등의 다른 언어들과 다르게
+for문 등과 같은 다른 중괄호 안에서의 변수는 전역변수로 사용됨
+
+# 정적 유효범위
+- 자바스크립트에서는 함수가 선언된 시점에서의 유효범위를 갖는다.
+- 이러한 유효범위의 방식을 정적 유효범위라고 한다.
+- static scope 혹은 lexical scoping
+
+var i = 5;
+ 
+function a(){
+    var i = 10;
+    b();
+}
+ 
+function b(){
+    document.write(i);
+}
+ 
+a();
+
+답은 5이다.
+b에서 i를 정의될 때의 시점에서 b 안에 지역변수 i가 없기에
+전역변수를 호출해야 하는데 
+역시나 b가 사용될 때가 아니라 정의되었을 때 시점으로 
+전역변수를 찾아서 호출하므로 a의 지역변수가 아닌 
+전역변수 i를 호출하고 값인 5를 가져오게 된다.
+
+이런 방식을 정적 유효범위라고 하며, lexical 유효범위라고 한다.
+메소드를 사용하는 대상에 따라서 그 대상이 가지고 있는 변수에 접근할 수
+있다면 동적인 유효범위 
+그렇지 않고, 정의내렸을 때를 기준으로 한다면 누가 사용하든 똑같기 때문에
+정적 유효범위라고 한다.

@@ -1,0 +1,109 @@
+body
+{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selection
+{
+    display: flex;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.selection input {
+    display: none;
+}
+
+.selection .slideWrap {
+    max-width: 1200px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.selection .slideWrap .slideList {
+    height: 100%;
+    white-space: nowrap;
+    padding-left: 0;
+    margin: 0;
+}
+
+.selection .slideWrap .slideList > li 
+{
+    display: inline-block;
+    vertical-align: middle;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    transition:all  0.5s;
+}
+
+.selection .slideWrap .slideList > li > a
+{
+    display: block;
+    position: relative;
+    height: 80%;
+}
+
+.selection .slideWrap .slideList > li > a > h1
+{
+    width: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.selection .slideWrap .slideList #bkGround01
+{
+    background-color: blue;
+}
+
+.selection .slideWrap .slideList #bkGround02
+{
+    background-color: green;
+}
+
+.selection .slideWrap .slideList #bkGround03
+{
+    background-color: red;
+}
+
+.selection .slideWrap .slideList label 
+{
+    z-index: 5;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.selection .slideWrap .slideList .left
+{
+    left: 30px;
+    background-color: honeydew;
+}
+
+.selection .slideWrap .slideList .right
+{
+    right: 30px;
+    background-color: honeydew;
+}
+
+.selection [id="slide01"]:checked ~ .slideWrap .slideList > li
+{
+    transform: translateX(0%);
+}
+
+.selection [id="slide02"]:checked ~ .slideWrap .slideList > li
+{
+    transform: translateX(-100%);
+}
+
+.selection [id="slide03"]:checked ~ .slideWrap .slideList > li
+{
+    transform: translateX(-200%);
+}
