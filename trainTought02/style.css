@@ -1,0 +1,176 @@
+body
+{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'YanoljaYacheB', Arial, Helvetica, sans-serif;
+}
+
+:root 
+{
+    --outWidth: 600px;
+    --outHeight: 900px;
+}
+
+.outbox
+{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: var(--outWidth);
+    height: var(--outHeight);
+    box-sizing: border-box;
+    background-image: 
+        linear-gradient(-45deg, 
+        rgb(28, 71, 93), rgb(198, 167, 219),
+        #f8afd9, rgb(82, 178, 191));
+    border: solid 20px transparent;
+    background-clip: content-box, border-box;
+    background-origin: border-box;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.outbox .headline
+{
+    flex-basis: 50%;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.outbox .searchline
+{
+    flex-basis: 10%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outbox .btnline
+{
+    flex-basis: 40%;
+    width: 100%;
+    height: 100%;
+}
+
+.outbox .headline > header
+{
+    position: absolute;
+    bottom: calc(var(--outHeight) * 0.01);
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(var(--outWidth) * 0.25);
+    height: calc(var(--outWidth) * 0.25);
+    font-size: 4.5em;
+    text-align: center;
+    letter-spacing: 10px;
+}
+
+.outbox .searchline #searchform
+{
+    width: calc(var(--outWidth) * 0.5);
+    height: calc(var(--outWidth) * 0.1);
+    position: relative;
+}
+
+.outbox .searchline #searchform > input
+{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: solid 5px transparent;
+    background-image: linear-gradient(white, white),
+        linear-gradient(-45deg, rgb(28, 71, 93), rgb(82, 178, 191));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    text-align: center;
+    font-size: 1em;
+    color: rgb(28, 71, 93);
+}
+
+.outbox .searchline #searchform > input:focus::placeholder
+{
+    color: transparent;
+}
+
+.outbox .searchline #searchform #quMark
+{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.outbox .btnline 
+{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.outbox .btnline > button
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(var(--outWidth) * 0.12);
+    margin: 10px;
+    height: calc(var(--outWidth) * 0.12);
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-image: linear-gradient(#e0f2f1,#ffffff),
+        linear-gradient(-45deg, rgb(28, 71, 93), rgb(82, 178, 191));
+    border: solid 3px transparent;
+    background-clip: content-box, border-box;
+    background-origin: border-box;
+    padding: 0;
+    transition: 1s;
+}
+
+.outbox .btnline > button > a > img
+{
+    width: calc(var(--outWidth) * 0.06);
+    height: calc(var(--outWidth) * 0.06);
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.outbox .btnline > button > a > span
+{
+    display: none;
+}
+
+.outbox .btnline > button:hover
+{
+    transition: 1s;
+    width: calc(var(--outWidth) * 0.15);
+    height: calc(var(--outWidth) * 0.15);
+    background-image: linear-gradient(#b2dfdb, #e5ffff),
+    linear-gradient(-45deg, rgb(28, 71, 93), rgb(82, 178, 191));
+}
+
+.outbox .btnline > button:hover > a > span
+{
+    display: inline-block;
+    font-size: 0.4em;
+    width: 100%;
+    font-weight: bolder;
+}
+
+.hidden
+{
+    display: none;
+}

@@ -1,0 +1,86 @@
+# 클로저
+
+>> 내부함수, 외부함수
+함수가 함수를 포함할 경우, 우리는 안에 있는 함수를 내부함수,
+내부함수를 싸고 있는 함수를 외부함수라고 한다.
+
+여기서 내부함수는 외부함수의 지역변수를 참고할 수 있다.
+
+>> 클로저란
+외부함수가 return으로 내부함수를 호출하면서 분명 외부함수가
+소멸했을 것이라고 생각하지만, 사실 내부함수가 소멸할 때까지 
+외부함수가 살아있다.
+
+이 때문에 내부함수는 외부함수의 지역변수를 외부함수가 소멸된 
+듯 보여도 외부함수의 지역변수를 사용할 수 있다.
+
+이를 클로저라고 한다.
+
+>> 객체의 메소드에서의 클로저
+클로저는 객체의 메소드에서도 사용할 수 있다.
+
+function factory_movie(title){
+    return {
+        get_title : function (){
+            return title;
+        },
+        set_title : function(_title){
+            title = _title
+        }
+    }
+}
+
+이 경우에서 아래의 결과는.
+
+ghost = factory_movie('Ghost in the shell');
+matrix = factory_movie('Matrix');
+ 
+alert(ghost.get_title());
+alert(matrix.get_title());
+
+'Ghost in the shell'과 'Matrix'로 다르다.
+이는 외부함수가 실행될 때마다 새로운 지역변수를 포함하는 클로저가
+생성되기 때문으로 이 경우 ghost와 matrix는 완전히 다른 독립된
+객체가 된다.
+
+ghost.set_title('공각기동대');
+ 
+alert(ghost.get_title());
+alert(matrix.get_title());
+
+하지만, ghost.get_title과 ghost.set_title의 경우는 
+같은 title이라는 지역변수를 공유하고 있다.
+
+>> 생기기 쉬운 오류
+
+var arr = []
+for(var i = 0; i < 5; i++){
+    arr[i] = function(){
+        return i;
+    }
+}
+for(var index in arr) {
+    console.log(arr[index]());
+}
+
+이 경우에 결과는 5 5 5 5 5
+
+이유는 i가 for문에 있으므로 전역변수이기 때문이다.
+즉, 클로저로 사용할 수 없기 때문에 우리는 아래와 같이 바꿔야 한다.
+
+var arr = []
+for(var i = 0; i < 5; i++){
+    arr[i] = function(id) {
+        return function(){
+            return id;
+        }
+    }(i);
+}
+for(var index in arr) {
+    console.log(arr[index]());
+}
+
+이렇게 되면 외부함수가 생기고, 전역변수 i를 id라는 외부함수의
+매개변수이자 지역변수로 가져올 수 있게 된다.
+그와 동시에 내부함수에서 이 id를 클로저를 사용해서 가져올 수 있게
+되면서 우리는 결과값 0 1 2 3 4를 호출할 수 있는 것이다.

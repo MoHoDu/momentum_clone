@@ -1,0 +1,227 @@
+body
+{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'YanoljaYacheB', Arial, Helvetica, sans-serif;
+}
+
+:root
+{
+    --unitA: 10%;
+    --unitB: 14%;
+    --unitC: 18%;
+}
+
+.outbox
+{
+    width: 100%;
+    height: 100%;
+    background: rgb(17, 17, 17);
+}
+
+.outbox .logos
+{
+    width: 100%;
+    height: 100%;
+}
+
+.outbox .logos .logo
+{
+    display: inline-block;
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    filter: brightness(70%) saturate(0%);
+}
+
+.outbox .logos #lg1:hover,
+.outbox .logos #lg4:hover,
+.outbox .logos #lg6:hover
+{
+    filter: brightness(100%) saturate(70%);
+}
+
+.outbox .logos #lg2:hover,
+.outbox .logos #lg3:hover,
+.outbox .logos #lg5:hover,
+.outbox .logos #lg7:hover
+{
+    filter: invert(100%) brightness(100%) saturate(70%);
+}
+
+.outbox .logos #lg1
+{
+    top: var(--unitA);
+    left: var(--unitA);
+    width: 18vw;
+    height: 18vw;
+    transform: rotate(0.04turn);
+    background: url('./logo1.png') no-repeat;
+    background-size: contain;
+    filter: brightness(90%);
+}
+
+.outbox .logos #lg2
+{
+    bottom: var(--unitA);
+    left: var(--unitA);
+    width: 16vw;
+    height: 16vw;
+    transform: rotate(-0.01turn);
+    background: url('./logo3.png') no-repeat;
+    background-size: contain;
+    filter: invert(100%) brightness(60%);
+}
+
+.outbox .logos #lg3
+{
+    top: calc(var(--unitB) * 3);
+    left: calc(var(--unitA) * 2);
+    transform: rotate(-0.014turn);
+    background: url('./logo2.png') no-repeat;
+    background-size: contain;
+    filter: invert(100%) brightness(30%);
+}
+
+.outbox .logos #lg4
+{
+    top: calc(var(--unitA) * 2);
+    right: calc(var(--unitB) * 2.6);
+    width: 13vw;
+    height: 13vw;
+    background: url('./logo4.png') no-repeat;
+    background-size: contain;
+}
+
+.outbox .logos #lg5
+{
+    top: var(--unitA);
+    right: calc(var(--unitC) * 0.5);
+    transform: rotate(-0.03turn);
+    background: url('./logo3.png') no-repeat;
+    background-size: contain;
+    filter: invert(100%) brightness(20%);
+}
+
+.outbox .logos #lg6
+{
+    bottom: calc(var(--unitB) * 0.5);
+    right: calc(var(--unitB) * 2.5);
+    transform: rotate(-0.03turn);
+    background: url('./logo4.png') no-repeat;
+    background-size: contain;
+}
+
+.outbox .logos #lg7
+{
+    bottom: calc(var(--unitB) * 1.8);
+    right: calc(var(--unitB) * 0.4);
+    width: 18vw;
+    height: 18vw;
+    transform: rotate(-0.01turn);
+    background: url('./logo2.png') no-repeat;
+    background-size: contain;
+    filter: invert(100%) brightness(50%);
+}
+
+.outbox .main
+{
+    width: 26vw;
+    height: 26vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.outbox .main .head
+{
+    width: 18vw;
+    min-width: 98px;
+    min-height: 98px;
+    max-width: 180px;
+    max-height: 180px;
+    height: 18vw;
+    flex-basis: 18vw;
+}
+
+.outbox .main .head > header
+{
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    font-size: 3.5em;
+    text-align: center;
+    letter-spacing: 10px;
+    color: white;
+    border: solid 5px white;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.outbox .main .search
+{
+    width: 100%;
+    flex-basis: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outbox .main .search .searchform
+{
+    width: 24vw;
+    height: 35px;
+    min-width: 170px;
+    max-width: 220px;
+}
+
+.outbox .main .search .searchform #searchbar
+{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: solid white 3px;
+    outline: none;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+.outbox .main .search .searchform #searchbar::placeholder
+{
+    color: rgb(212, 212, 212);
+}
+
+.outbox .main .search .searchform #searchbar:focus::placeholder
+{
+    color: transparent;
+}
+
+@media (min-width: 800px) 
+{
+    .outbox .main .head > header
+    {
+        font-size: 4em;
+    }
+}
+
+@media (max-width: 650px) {
+    .outbox .main .head > header
+    {
+        font-size: 2.5em;
+    }
+}
