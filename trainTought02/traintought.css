@@ -1,11 +1,25 @@
+html, body {
+    touch-action: none;
+    -webkit-overflow-scrolling: none;
+    overflow: hideen;
+    /* 이외의 브라우저 */
+    overscroll-behavior: none;
+  }
+
 body
 {
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    min-width: 200px;
     margin: 0;
     padding: 0;
-    font-family: 'YanoljaYacheB', Arial, Helvetica, sans-serif;
+    font-family: 'YanoljaYacheB';
+}
+
+@font-face {
+    font-family: 'YanoljaYacheB';
+    /* src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YanoljaYacheB.woff') format('woff'); */
+    src: url('./yanolja.woff') format('woff');
 }
 
 :root
@@ -13,10 +27,14 @@ body
     --unitA: 10%;
     --unitB: 14%;
     --unitC: 18%;
+
+    --unitWth: 100px;
 }
 
 .outbox
 {
+    padding: 0;
+    margin: 0;
     width: 100%;
     height: 100%;
     background: rgb(17, 17, 17);
@@ -32,8 +50,8 @@ body
 {
     display: inline-block;
     position: absolute;
-    width: 140px;
-    height: 140px;
+    width: calc(var(--unitWth) + 40px);
+    height: calc(var(--unitWth) + 40px);
     filter: brightness(70%) saturate(0%);
 }
 
@@ -56,8 +74,8 @@ body
 {
     top: var(--unitA);
     left: var(--unitA);
-    width: 18vw;
-    height: 18vw;
+    width: calc(var(--unitWth) + 60px);
+    height: calc(var(--unitWth) + 60px);
     transform: rotate(0.04turn);
     background: url('./logo1.png') no-repeat;
     background-size: contain;
@@ -68,8 +86,6 @@ body
 {
     bottom: var(--unitA);
     left: var(--unitA);
-    width: 16vw;
-    height: 16vw;
     transform: rotate(-0.01turn);
     background: url('./logo3.png') no-repeat;
     background-size: contain;
@@ -90,8 +106,8 @@ body
 {
     top: calc(var(--unitA) * 2);
     right: calc(var(--unitB) * 2.6);
-    width: 13vw;
-    height: 13vw;
+    width: calc(var(--unitWth) + 10px);
+    height: calc(var(--unitWth) + 10px);
     background: url('./logo4.png') no-repeat;
     background-size: contain;
 }
@@ -119,8 +135,8 @@ body
 {
     bottom: calc(var(--unitB) * 1.8);
     right: calc(var(--unitB) * 0.4);
-    width: 18vw;
-    height: 18vw;
+    width: calc(var(--unitWth) + 70px);
+    height: calc(var(--unitWth) + 70px);
     transform: rotate(-0.01turn);
     background: url('./logo2.png') no-repeat;
     background-size: contain;
@@ -130,7 +146,9 @@ body
 .outbox .main
 {
     width: 26vw;
-    height: 26vw;
+    height: 30vw;
+    min-height: 167px;
+    min-width: 145px;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -143,13 +161,13 @@ body
 
 .outbox .main .head
 {
-    width: 18vw;
+    width: 20vw;
     min-width: 98px;
     min-height: 98px;
     max-width: 180px;
     max-height: 180px;
-    height: 18vw;
-    flex-basis: 18vw;
+    height: 20vw;
+    flex-basis: 20vw;
 }
 
 .outbox .main .head > header
@@ -168,12 +186,96 @@ body
     border: solid 5px white;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
+    cursor: pointer;
+}
+
+@keyframes bigger {
+    from {
+        width: 23vw;
+        height: 24vw;
+        filter: brightness(0%) blur(0px);
+    }
+
+    to {
+        width: 26vw;
+        height: 26vw;
+        filter: brightness(90%) blur(2px);
+    }
+}
+
+@keyframes brightness {
+    0% {
+        filter: invert(100%) grayscale(100%) blur(1px);
+    }
+
+    50% {
+        filter: invert(0%) grayscale(50%) blur(0.3px);
+    }
+
+    100% {
+        filter: invert(0%) grayscale(0%) blur(0px);
+    }
+}
+
+.outbox .main:hover .head > header
+{
+    border: solid 10px transparent;
+    background-image: linear-gradient(#ffffff, #ffffff),
+        linear-gradient(135deg ,rgb(105, 165, 175), rgb(11, 90, 11));
+    background-clip: content-box, border-box;
+    background-origin: border-box;
+    padding-left: 0;
+    animation-name: brightness;
+    animation-duration: 0.5s;
+}
+
+.outbox .main:hover::before
+{
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 26vw;
+    height: 26vw;
+    background: linear-gradient(135deg, #ffffff ,#857982);
+    filter: brightness(90%) blur(2px);
+    top: -5%;
+    left: -1%;
+    /* transform: rotate(0.03turn); */
+    /* transform: skew(5deg); */
+    z-index: -1;
+    animation-duration: 1s;
+    animation-name: bigger;
+}
+
+.outbox .main:hover .head > header > a
+{
+    margin-left: 10px;
+    background: linear-gradient(135deg ,rgb(105, 165, 175), rgb(11, 90, 11));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.outbox .main:hover .search .searchform #searchbar
+{
+    border: solid 5px transparent;
+    background-image: linear-gradient(#ffffff, #ffffff),
+        linear-gradient(rgb(105, 165, 175), rgb(11, 90, 11), rgb(1, 10, 1));
+    background-clip: content-box, border-box;
+    background-origin: border-box;
+    color: black;
+    animation-name: brightness;
+    animation-duration: 0.5s;
+}
+
+.outbox .main:hover .search .searchform #searchbar::placeholder
+{
+    color: black;
 }
 
 .outbox .main .search
 {
     width: 100%;
-    flex-basis: 10vw;
+    flex-basis: 8vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,7 +283,7 @@ body
 
 .outbox .main .search .searchform
 {
-    width: 24vw;
+    width: 100%;
     height: 35px;
     min-width: 170px;
     max-width: 220px;
@@ -219,7 +321,56 @@ body
     }
 }
 
-@media (max-width: 650px) {
+@media (max-height: 600px) {
+    :root
+    {
+        --unitA: 10%;
+        --unitB: 11%;
+        --unitC: 12%;
+
+        --unitWth: 40px;
+    }
+}
+
+@media (max-width: 620px) {
+    :root
+    {
+        --unitWth: 60px;
+    }
+
+    .outbox .main
+    {
+        width: 145px;
+        height: 167px;
+    }
+
+    @keyframes bigger {
+        from {
+            width: 120px;
+            height: 122px;
+            filter: brightness(0%) blur(0px);
+        }
+    
+        to {
+            width: 165px;
+            height: 165px;
+            filter: brightness(90%) blur(2px);
+        }
+    }
+
+    .outbox .main:hover::before
+    {
+        width: 165px;
+        height: 165px;
+        top: -15px;
+        left: -11px;
+    }
+
+    .outbox .main:hover .head > header
+    {
+        border: solid 7px transparent;
+    }
+
     .outbox .main .head > header
     {
         font-size: 2.5em;
