@@ -19,7 +19,7 @@ body
 @font-face {
     font-family: 'YanoljaYacheB';
     /* src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YanoljaYacheB.woff') format('woff'); */
-    src: url('./yanolja.woff') format('woff');
+    src: url('../others/yanolja.woff') format('woff');
 }
 
 :root
@@ -77,7 +77,7 @@ body
     width: calc(var(--unitWth) + 60px);
     height: calc(var(--unitWth) + 60px);
     transform: rotate(0.04turn);
-    background: url('./logo1.png') no-repeat;
+    background: url('../image/logo1.png') no-repeat;
     background-size: contain;
     filter: brightness(90%);
 }
@@ -87,7 +87,7 @@ body
     bottom: var(--unitA);
     left: var(--unitA);
     transform: rotate(-0.01turn);
-    background: url('./logo3.png') no-repeat;
+    background: url('../image/logo3.png') no-repeat;
     background-size: contain;
     filter: invert(100%) brightness(60%);
 }
@@ -97,7 +97,7 @@ body
     top: calc(var(--unitB) * 3);
     left: calc(var(--unitA) * 2);
     transform: rotate(-0.014turn);
-    background: url('./logo2.png') no-repeat;
+    background: url('../image/logo2.png') no-repeat;
     background-size: contain;
     filter: invert(100%) brightness(30%);
 }
@@ -108,7 +108,7 @@ body
     right: calc(var(--unitB) * 2.6);
     width: calc(var(--unitWth) + 10px);
     height: calc(var(--unitWth) + 10px);
-    background: url('./logo4.png') no-repeat;
+    background: url('../image/logo4.png') no-repeat;
     background-size: contain;
 }
 
@@ -117,7 +117,7 @@ body
     top: var(--unitA);
     right: calc(var(--unitC) * 0.5);
     transform: rotate(-0.03turn);
-    background: url('./logo3.png') no-repeat;
+    background: url('../image/logo3.png') no-repeat;
     background-size: contain;
     filter: invert(100%) brightness(20%);
 }
@@ -127,7 +127,7 @@ body
     bottom: calc(var(--unitB) * 0.5);
     right: calc(var(--unitB) * 2.5);
     transform: rotate(-0.03turn);
-    background: url('./logo4.png') no-repeat;
+    background: url('../image/logo4.png') no-repeat;
     background-size: contain;
 }
 
@@ -138,7 +138,7 @@ body
     width: calc(var(--unitWth) + 70px);
     height: calc(var(--unitWth) + 70px);
     transform: rotate(-0.01turn);
-    background: url('./logo2.png') no-repeat;
+    background: url('../image/logo2.png') no-repeat;
     background-size: contain;
     filter: invert(100%) brightness(50%);
 }

@@ -1,0 +1,581 @@
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+a
+{
+    text-decoration: none;
+    color: black;
+}
+
+a:visited
+{
+    text-decoration: none;
+}
+
+a:link
+{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover
+{
+    text-decoration: none;
+    color: black;
+}
+
+a:active
+{
+    text-decoration: none;
+    color: black;
+}
+
+@font-face {
+    font-family: 'YanoljaYacheB';
+    /* src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YanoljaYacheB.woff') format('woff'); */
+    src: url('../others/yanolja.woff') format('woff');
+}
+
+:root
+{
+    --blackDark: #000a12;
+    --blackLight: #4f5b62;
+    --black: #263238;
+    --greyDark: #8d8d8d;
+    --greyLight: #efefef;
+    --grey: #bdbdbd;
+    --yellDark: #cabf45;
+    --yellLight: #ffffa8;
+    --yellow: #fff176;
+
+    --headerBasisLeft: 80%;
+    --headerBasisRight: 20%;
+    --searchBasisLeft: 2.5em;
+    --searchBasisRight: 80%;
+
+    --headerHeight: 50px;
+}
+
+body
+{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+header
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--headerHeight);
+    background-color: var(--black);
+}
+
+header .mainSearch
+{
+    flex-basis: var(--headerBasisLeft);
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+header .mainButton
+{
+    flex-basis: var(--headerBasisRight);
+    display: flex;
+    justify-content: end;
+}
+
+header .mainSearch #logo
+{
+    box-sizing: border-box;
+    flex-basis: var(--searchBasisLeft);
+    margin-left: 5px;
+    text-align: center;
+    font-size: calc(var(--searchBasisLeft) - 0.5em);
+    font-weight: bold;
+    color: #ffffff;
+}
+
+header .mainSearch > form
+{
+    flex-basis: 40px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+header .mainSearch > form:hover,
+header .mainSearch > form:focus-within
+{
+    flex-basis: var(--searchBasisRight);
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+header .mainSearch > form > input
+{
+    width: 100%;
+    height: 80%;
+    background-color: transparent;
+    border: solid 3px #ffffff;
+    outline: none;
+    color: transparent;
+    padding-left: 5px;
+    transition: 0.5s;
+}
+
+header .mainSearch > form:hover > input,
+header .mainSearch > form:focus-within > input
+{
+    color: #ffffff;
+}
+
+header .mainSearch > form > input::placeholder
+{
+    color: transparent;
+}
+
+header .mainSearch > form:hover > input::placeholder,
+header .mainSearch > form:focus-within > input::placeholder
+{
+    color: var(--grey);
+}
+
+header .mainSearch > form > span
+{
+    position: absolute;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--greyLight);
+    z-index: 2;
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s;
+}
+
+header .mainSearch > form > span #searchIcon,
+header .mainSearch > form:hover > span #thinkIcon,
+header .mainSearch > form:focus-within > span #thinkIcon
+{
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+header .mainSearch > form:hover > span #searchIcon,
+header .mainSearch > form:focus-within > span #searchIcon,
+header .mainSearch > form > span #thinkIcon
+{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+header .mainButton > button
+{
+    display: flex;
+    width: calc(var(--headerHeight) - 0.8em);
+    height: calc(var(--headerHeight) - 0.8em);
+    box-sizing: content-box;
+    border: solid #ffffff 2px;
+    background-color: var(--black);
+    color: #ffffff;
+    border-radius: 40%;
+    font-size: 100%;
+    margin: 0 2px 0 2px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+header .mainButton > button:focus
+{
+    color: var(--yellow);
+    border-color: var(--yellDark);
+}
+
+.middle
+{
+    display: flex;
+    height: calc(100% - 50px);
+}
+
+.middle .contentBox
+{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    flex-basis: 80%;
+}
+
+.middle .contentBox::before,
+.middle .contentBox::after
+{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0.7em;
+    z-index: 20;
+    filter: opacity(1);
+    border-left: 2em solid transparent;
+    border-right: 2em solid transparent;
+    box-sizing: border-box;
+}
+
+.middle .contentBox::before
+{
+    top: 0;
+    background: linear-gradient(to top, 
+        var(--greyLight), var(--greyDark), 
+        var(--blackLight), var(--blackDark)),
+        linear-gradient(to top, 
+        var(--blackLight), var(--blackDark));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.middle .contentBox::after
+{
+    bottom: 0;
+    background: linear-gradient( 
+        var(--greyLight), var(--greyDark), 
+        var(--blackLight), var(--blackDark)),
+        linear-gradient(to top, 
+        var(--blackLight), var(--blackDark));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.middle .contentBox .content
+{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.middle .contentBox .content .resultBox
+{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+    padding: 0.7em 0 0.7em 0;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.middle .contentBox .content .resultBox::-webkit-scrollbar
+{
+    display: none;
+}
+
+.middle .contentBox .content::before
+{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    border-left: solid 2em var(--black);
+    border-right: solid 2em var(--black);
+    box-sizing: border-box;
+}
+
+.middle .contentBox .content::after
+{
+    content: "";
+    width: calc(100% - 1em);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    border-left: dashed 1em var(--greyLight);
+    border-right: dashed 1em var(--greyLight);
+    box-sizing: border-box;
+}
+
+.middle .contentBox .content .resultBox .result
+{
+    width: calc(100% - 4em);
+    height: 10em;
+    flex-shrink: 0;
+    border-bottom: dashed var(--greyDark) 0.2em;
+    display: flex;
+}
+
+.middle .contentBox .content .resultBox .result:first-child
+{
+    border-top: dashed var(--greyDark) 0.2em;
+}
+
+.middle .contentBox .content .resultBox .result .thumbnail
+{
+    position: relative;
+    flex-basis: 16em;
+    flex-grow: 1;
+    height: auto;
+    margin: 0.5em;
+    border: solid var(--blackLight) 2px;
+    box-sizing: border-box;
+    background: var(--black);
+}
+
+.middle .contentBox .content .resultBox .result .thumbnail .thumbimg
+{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+.middle .contentBox .content .resultBox .result .thumbnail .format
+{
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 3em;
+    height: 3em;
+    border: solid var(--blackDark) 3px;
+}
+
+.middle .contentBox .content .resultBox .result .thumbnail .youtube
+{
+    background-image: url('../image/youtube_icon.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.middle .contentBox .content .resultBox .result .thumbnail .hereum
+{
+    background-image: url('../image/hereum_icon.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.middle .contentBox .content .resultBox .result .thumbnail .time
+{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: var(--grey);
+}
+
+.middle .contentBox .content .resultBox .result .text
+{
+    position: relative;
+    flex-basis: calc(100% - 13em);
+    flex-grow: 1;
+    height: calc(100% - 1em - 4px);
+    margin: calc(0.5em + 2px);
+}
+
+.middle .contentBox .content .resultBox .result .text .titles
+{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.middle .contentBox .content .resultBox .result .text .titles .movieTitle
+{
+    height: 50%;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1.2em;
+}
+
+.middle .contentBox .content .resultBox .result .text .textbox
+{
+    height: calc(50% - 4px);
+    width: calc(100% - 4px);
+    border: solid var(--blackLight) 2px;
+}
+
+.middle .contentBox .content .resultBox .result .text .membersAndTags
+{
+    display: flex;
+    flex-direction: row;
+    height: 25%;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+
+.middle .contentBox .content .resultBox .result .text .membersAndTags .members
+{
+    flex-basis: 50%;
+    list-style: "@ " inside;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+
+.middle .contentBox .content .resultBox .result .text .membersAndTags .members > li
+{
+    flex-basis: 1;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.middle .contentBox .content .resultBox .result .text .membersAndTags .members > p
+{
+    flex-basis: 2;
+    flex-grow: 1;
+    flex-shrink: 0;
+    font-size: small;
+    text-align: center;
+}
+
+.middle .contentBox .content .resultBox .result .text .membersAndTags .tags
+{
+    flex-basis: 50%;
+    list-style: "# " inside;
+    display: flex;
+    justify-content: end;
+}
+
+.middle .contentBox .content .resultBox .result .text .membersAndTags .tags > li
+{
+    padding-left: 10px;
+}
+
+.middle .contentBox .content .resultBox .result .text .date
+{
+    position: absolute;
+    top: -5px;
+    right: calc(0.2em + 20px);
+}
+
+.middle .contentBox .content .resultBox .result .text .bookmark
+{
+    position: absolute;
+    top: -5px;
+    right: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.middle .contentBox .booked .resultBox .result .text #noMark
+{
+    display: none;
+}
+
+.middle .contentBox .content .resultBox .result .text #marked
+{
+    display: none;
+}
+
+.middle > aside
+{
+    height: 100%;
+    flex-basis: 20%;
+    box-sizing: border-box;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    background: var(--greyDark); 
+}
+
+.middle > aside li
+{
+    padding-left: 6px;
+    margin-bottom: 3px;
+}
+
+.middle > aside .tagTab li
+{
+    list-style: '# ' inside;
+}
+
+.middle > aside .memberTab li
+{
+    list-style: '@ ' inside;
+}
+
+.middle > aside .sortTab
+{
+    padding-bottom: 5px;
+    box-sizing: border-box;
+}
+
+.middle > aside .sortTab #sorting
+{
+    height: 25px;
+    background-color: transparent;
+    border: solid var(--greyLight) 2px;
+    color: var(--greyLight);
+    /* appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none; */
+}
+
+/* .middle > aside .sortTab #sorting::-ms-expand
+{
+    display: none;
+} */
+
+.middle > aside .sortTab,
+.middle > aside .tagTab,
+.middle > aside .memberTab
+{
+    flex-basis: 2;
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.middle > aside .titleBox
+{
+    width: 100%;
+    box-sizing: border-box;
+    margin: 5px 0 5px 0;
+    position: relative;
+    border-bottom: solid var(--grey) 2px;
+}
+
+.middle > aside .titleBox .tabTitle
+{
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 1px 3px 1px 3px;
+    background-color: transparent;
+}
+
+.middle > aside .titleBox > button
+{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 1.2em;
+    box-sizing: border-box;
+    cursor: pointer;
+}

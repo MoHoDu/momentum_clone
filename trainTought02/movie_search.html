@@ -5,39 +5,226 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>생각훈련</title>
+    <link rel="stylesheet" href="./style_sheet/search.css">
 </head>
 <body>
     <header>
-        <div>
-            <span></span>
+        <div class="mainSearch">
+            <span id="logo"><a href="trainthought.html">.tyt</a></span>
             <form>
-                <input type="text"/>
-                <span></span>
+                <input type="text" placeholder="영화나 #태그, @멤버를 검색하세요"/>
+                <span>
+                    <ion-icon id="searchIcon" name="search-outline"></ion-icon>
+                    <ion-icon id="thinkIcon" name="bulb-outline"></ion-icon>
+                </span>
             </form>
         </div>
-        <div>
-            <button>북마크</button>
+        <div class="mainButton">
+            <button>
+                <ion-icon name="bookmarks-outline"></ion-icon>
+            </button>
+            <button><ion-icon name="menu-outline"></ion-icon></button>
         </div>
     </header>
-    <div>
-        <div>
-
+    <div class="middle">
+        <div class="contentBox">
+            <div class="content">
+                <div class="resultBox">
+                    <div class="result">  
+                        <div class="thumbnail">
+                            <div class="thumbimg" style="background-image: url(https://i.ytimg.com/vi/E8ZJWcbdN_w/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCMyZzY6yT9JorJDkOm0In_s5bEnw);"></div>
+                            <div class="format youtube"></div>
+                            <span class="time">01:00:00</span>
+                        </div> 
+                        <div class="text">
+                            <div class="titles">
+                                <span class="movieTitle">Before midnight</span>
+                                <span class="mediaTitle">- 화장을 벗은, 맨 얼굴의 내 사랑</span>
+                            </div>
+                            <div class="textbox">
+                                <p></p>
+                            </div>
+                            <div class="membersAndTags">
+                                <div class="members">
+                                    <li><a href="">한피디</a></li>
+                                    <li><a href="">동피디</a></li>
+                                    <p>외 2명</p>
+                                </div>
+                                <div class="tags">
+                                    <li><a href="">멜로</a></li>
+                                    <li><a href="">공포</a></li>
+                                </div>
+                            </div>
+                            <span class="date">2021.01.01</span>
+                            <ion-icon class="bookmark" id="noMark" name="bookmark-outline"></ion-icon>
+                            <ion-icon class="bookmark" id="marked" name="bookmark"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="result">  
+                        <div class="thumbnail">
+                            <div class="thumbimg"></div>
+                            <div class="format hereum"></div>
+                            <span class="time">01:00:00</span>
+                        </div> 
+                        <div class="text">
+                            <div class="titles">
+                                <span class="movieTitle"></span>
+                                <span class="mediaTitle"></span>
+                            </div>
+                            <div class="textbox">
+                                <p></p>
+                            </div>
+                            <div class="membersAndTags">
+                                <div class="members">
+                                    <a href=""></a>
+                                    <a href=""></a>
+                                    <p>외 2명</p>
+                                </div>
+                                <div class="tags">
+                                    <li><a href=""></a></li>
+                                    <li><a href=""></a></li>
+                                </div>
+                            </div>
+                            <span class="date">2021.01.01</span>
+                            <ion-icon class="bookmark" name="bookmark-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="result">  
+                        <div class="thumbnail">
+                            <div class="thumbimg"></div>
+                            <div class="format"></div>
+                            <span class="time">01:00:00</span>
+                        </div> 
+                        <div class="text">
+                            <div class="titles">
+                                <span class="movieTitle"></span>
+                                <span class="mediaTitle"></span>
+                            </div>
+                            <div class="textbox">
+                                <p></p>
+                            </div>
+                            <div class="membersAndTags">
+                                <div class="members">
+                                    <a href=""></a>
+                                    <a href=""></a>
+                                    <p>외 2명</p>
+                                </div>
+                                <div class="tags">
+                                    <li><a href=""></a></li>
+                                    <li><a href=""></a></li>
+                                </div>
+                            </div>
+                            <span class="date">2021.01.01</span>
+                            <ion-icon class="bookmark" name="bookmark-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="result">  
+                        <div class="thumbnail">
+                            <div class="thumbimg"></div>
+                            <div class="format"></div>
+                            <span class="time">01:00:00</span>
+                        </div> 
+                        <div class="text">
+                            <div class="titles">
+                                <span class="movieTitle"></span>
+                                <span class="mediaTitle"></span>
+                            </div>
+                            <div class="textbox">
+                                <p></p>
+                            </div>
+                            <div class="membersAndTags">
+                                <div class="members">
+                                    <a href=""></a>
+                                    <a href=""></a>
+                                    <p>외 2명</p>
+                                </div>
+                                <div class="tags">
+                                    <li><a href=""></a></li>
+                                    <li><a href=""></a></li>
+                                </div>
+                            </div>
+                            <span class="date">2021.01.01</span>
+                            <ion-icon class="bookmark" name="bookmark-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="result">  
+                        <div class="thumbnail">
+                            <div class="thumbimg"></div>
+                            <div class="format"></div>
+                            <span class="time">01:00:00</span>
+                        </div> 
+                        <div class="text">
+                            <div class="titles">
+                                <span class="movieTitle"></span>
+                                <span class="mediaTitle"></span>
+                            </div>
+                            <div class="textbox">
+                                <p></p>
+                            </div>
+                            <div class="membersAndTags">
+                                <div class="members">
+                                    <a href=""></a>
+                                    <a href=""></a>
+                                    <p>외 2명</p>
+                                </div>
+                                <div class="tags">
+                                    <li><a href=""></a></li>
+                                    <li><a href=""></a></li>
+                                </div>
+                            </div>
+                            <span class="date">2021.01.01</span>
+                            <ion-icon class="bookmark" name="bookmark-outline"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="result">  
+                        <div class="thumbnail">
+                            <div class="thumbimg"></div>
+                            <div class="format"></div>
+                            <span class="time">01:00:00</span>
+                        </div> 
+                        <div class="text">
+                            <div class="titles">
+                                <span class="movieTitle"></span>
+                                <span class="mediaTitle"></span>
+                            </div>
+                            <div class="textbox">
+                                <p></p>
+                            </div>
+                            <div class="membersAndTags">
+                                <div class="members">
+                                    <a href=""></a>
+                                    <a href=""></a>
+                                    <p>외 2명</p>
+                                </div>
+                                <div class="tags">
+                                    <li><a href=""></a></li>
+                                    <li><a href=""></a></li>
+                                </div>
+                            </div>
+                            <span class="date">2021.01.01</span>
+                            <ion-icon class="bookmark" name="bookmark-outline"></ion-icon>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
         <aside>
-            <div>
-                <div>
-                    <span>Sort</span>
+            <div class="sortTab">
+                <div class="titleBox">
+                    <span class="tabTitle">Sort</span>
                 </div>
                 <select name="sorting" id="sorting">
                     <option value="latestfirst">최신 날짜순</option>
                     <option value="oldestfirst">오래된 날짜순</option>
                 </select>
             </div>
-            <hr color="black" />
-            <div>
-                <div>
-                    <span>Tag</span>
-                    <button>더보기</button>
+            <div class="tagTab">
+                <div class="titleBox">
+                    <span class="tabTitle">Tag</span>
+                    <button>
+                        <ion-icon id="plusTag" class="plusBtn" name="add-circle-outline"></ion-icon>
+                    </button>
                 </div>
                 <ul>
                     <li>감동</li>
@@ -46,20 +233,23 @@
                     <li>멜로</li>
                 </ul>
             </div>
-            <hr color="black" />
-            <div>
-                <div>
-                    <span>Member</span>
-                    <button>더보기</button>
+            <div class="memberTab">
+                <div class="titleBox">
+                    <span class="tabTitle">Member</span>
+                    <button>
+                        <ion-icon id="plusMember" class="plusBtn" name="add-circle-outline"></ion-icon>
+                    </button>
                 </div>
                 <ul>
                     <li>한피디</li>
                     <li>동피디</li>
-                    <li>M형</li>
-                    <li>기타</li>
+                    <li>수현</li>
+                    <li>J (제이)</li>
                 </ul>
             </div>
         </aside>
     </div>
 </body>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </html>
