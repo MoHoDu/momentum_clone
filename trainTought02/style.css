@@ -1,0 +1,305 @@
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+body
+{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(20, 20, 20);
+}
+
+:root 
+{
+    --cell: 25vw;
+}
+
+.contents
+{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.title, .seats
+{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.title 
+{
+    opacity: 0;
+    width: calc(var(--cell) * var(--x));
+    height: calc(var(--cell) * var(--y));
+    top: calc(var(--cell) * var(--t));
+    animation: animateTitle 2s;
+    animation-delay: 6s;
+    animation-fill-mode: forwards;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title .titlemark
+{
+    width: 80%;
+    height: 80%;
+    background-image: url('./image/tyt.png');
+    background-size: cover;
+    border-radius: 50%;
+    /* background-color: rgba(59, 59, 59, 0.486); */
+}
+
+@keyframes animateTitle
+{
+    0%
+    {
+        opacity: 0;
+    }
+
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+.logo
+{
+    opacity: 0;
+    position: absolute;
+    width: calc((var(--cell)) * var(--s));
+    height: calc((var(--cell)) * var(--s));
+    /* background-color: rgb(158, 158, 158); */
+    filter: brightness(30%);
+    z-index: 10;
+    border-radius: 50%;
+    top: calc(var(--cell) * var(--t));
+    left: calc(var(--cell) * var(--l));
+    transform: translate(calc(var(--cell) * (1 - var(--s)) * 0.5),
+                        calc(var(--cell) * (1 - var(--s)) * 0.5)) 
+               rotate(var(--r));
+    animation: animateLogo 2s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+}
+
+.contents .logo img
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-top: 2px;
+    filter: opacity(0.5) drop-shadow(0 0 0 white)
+    drop-shadow(0 0 0 white);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transition: 1s;
+    box-sizing: border-box;
+}
+
+.contents .logo .portrait
+{
+    opacity: 0;
+}
+
+.contents .logo:hover .portrait
+{
+    opacity: 1;
+    filter: opacity(1) drop-shadow(0 0 0 transparent)
+    drop-shadow(0 0 0 transparent)
+    drop-shadow(0 0 0 transparent)
+    drop-shadow(0 0 0 transparent);
+    border: none;
+}
+
+.contents .logo .line
+{
+    opacity: 0.8;
+}
+
+.contents .logo:hover .line
+{
+    opacity: 0;
+}
+
+@keyframes animateLogo 
+{
+    0%
+    {
+        opacity: 0;
+        filter: brightness(30%);
+    }
+
+    25%
+    {
+        opacity: 0.5;
+        filter: brightness(80%);
+    }
+
+    50%
+    {
+        opacity: 1;
+        filter: brightness(30%);
+    }
+
+    75% 
+    {
+        opacity: 1;
+        filter: brightness(80%);
+    }
+
+    100%
+    {
+        opacity: 1;
+        filter: brightness(80%);
+    }
+}
+
+.screen
+{
+    position: absolute;
+    width: 100%;
+    height: 0;
+    box-sizing: border-box;
+    border-bottom: solid 5px white;
+    background-color: black;
+    animation: animateScreen 2s ;
+    animation-fill-mode: forwards;
+    z-index: 1;
+}
+
+@keyframes animateScreen
+{
+    0%
+    {
+        height: calc(var(--cell) * 0);
+    }
+
+    100%
+    {
+        height: calc(var(--cell) * 4.5);
+    }
+}
+
+.seats
+{
+    position: absolute;
+    width: 100%;
+    height: calc(var(--cell) * var(--y));
+    bottom: calc(var(--cell) * var(--y) * -1);
+    animation: animateSeats 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+.seats img 
+{
+    width: 100%;
+    height: 100%;
+    filter: opacity(0.5) drop-shadow(0 0 0 red);
+}
+
+@keyframes animateSeats
+{
+    0%
+    {
+        bottom: calc(var(--cell) * var(--y) * -1);
+    }
+
+    100%
+    {
+        bottom: calc(var(--cell) * var(--b));
+    }
+}
+
+@media (max-height: 149vw) {
+    :root 
+    {
+        --cell: 16.5vh;
+    }
+
+    .screen
+    {
+        opacity: 0;
+    }
+
+    .title 
+    {
+        opacity: 0;
+        width: calc(var(--cell) * var(--x));
+    }
+}
+
+@media (min-width: 150vh) {
+    :root 
+    {
+        --cell: 25vh;
+    }
+
+    .title 
+    {
+        top: calc(var(--cell) * 0.5);
+        animation-delay: 2s;
+    }
+
+    @keyframes animateTitle
+    {
+        0%
+        {
+            opacity: 0;
+        }
+
+        100%
+        {
+            opacity: 1;
+        }
+    }
+
+    .screen
+    {
+        height: calc(var(--cell) * 2.5);
+    }
+
+    @keyframes animateScreen
+    {
+        0%
+        {
+            top: calc(var(--cell) * -3);
+        }
+
+        100%
+        {
+            top: 0;
+        }
+    }
+
+    .seats
+    {
+        bottom: calc(var(--cell) * -1);
+        animation-delay: 0s;
+    }
+
+    @keyframes animateSeats
+    {
+        0%
+        {
+            bottom: calc(var(--cell) * -1);
+        }
+
+        100%
+        {
+            bottom: calc(var(--cell) * var(--b));
+        }
+    }
+}
