@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/TYT.github.io/static/css/main.2f936beb.css",
-    "main.js": "/TYT.github.io/static/js/main.198e6a46.js",
-    "static/media/face.png": "/TYT.github.io/static/media/face.4e17e8ea2b0b6e88038e.png",
-    "index.html": "/TYT.github.io/index.html",
-    "main.2f936beb.css.map": "/TYT.github.io/static/css/main.2f936beb.css.map",
-    "main.198e6a46.js.map": "/TYT.github.io/static/js/main.198e6a46.js.map"
+    "main.css": "/TYT/static/css/main.2f936beb.css",
+    "main.js": "/TYT/static/js/main.21b40d4e.js",
+    "static/media/face.png": "/TYT/static/media/face.4e17e8ea2b0b6e88038e.png",
+    "index.html": "/TYT/index.html",
+    "main.2f936beb.css.map": "/TYT/static/css/main.2f936beb.css.map",
+    "main.21b40d4e.js.map": "/TYT/static/js/main.21b40d4e.js.map"
   },
   "entrypoints": [
     "static/css/main.2f936beb.css",
-    "static/js/main.198e6a46.js"
+    "static/js/main.21b40d4e.js"
   ]
 }
